@@ -1,34 +1,136 @@
-#include "stdafx.h"
 #include "Assignments.h"
-#include <iostream>
 #include <string>
+#include <map>
 
-//Constructor for the class
-Assignments::Assignments() {
+//ASSIGNMENT CONSTRUCTORS
 
+//Required default constructor used if the client did not add a name and ID
+Assignments::Assignments()
+{
+	assignmentName = "null";
+	assignmentID = 0;
+	maxScore = 0;
+	minScore = 0;
+	meanScore = 0;
 }
 
-Assignments::string getName() {
-	return name;
+//Main constructor, sets name and ID variables when given
+Assignments::Assignments(std::string name, int ID)
+{
+	assignmentName = name;
+	assignmentID = ID;
+	maxScore = 0;
+	minScore = 0;
+	meanScore = 0;
 }
-Assignments::int getID() {
+
+
+//GET METHODS
+//returns the value of the assignment name 
+std::string Assignments::getName()
+{
+	return assignmentName;
+}
+//returns the value of the assignment ID
+int Assignments::getID()
+{
 	return assignmentID;
 }
-Assignments::Student[] getTurnedInArray() {
-
+//returns value of grade from the assignment ID
+double Assignments::getGrade(int ID)
+{
+	//Checks if the assignment ID can be found in grades, if not returns 0
+	if (grades.find(ID) == grades.end())
+	{
+		return 0;
+	}
+	else
+	{
+		return grades[ID];
+	}
 }
-Assignments::double getMaxScore() {
+//returns max score that has been set from assignments
+double Assignments::getMaxScore()
+{
 	return maxScore;
 }
-Assignments::void setCategory(category.name) {
-
-}
-Assignments::string getCategory() {
-	return category;
-}
-Assignments::Student[] getIncompleteAssgnArray() {
-
-}
-Assignments::double getMinScore() {
+//returns min score that has been set from assignments
+double Assignments::getMinScore()
+{
 	return minScore;
 }
+//returns mean score that is set in assignments
+double Assignments::getMeanScore()
+{
+	return meanScore;
+}
+
+//SET METHODS
+//Sets assignment name to the name that is provided
+void Assignments::setName(std::string name)
+{
+	assignmentName = name;
+}
+//sets assignment ID to the ID that is provided
+void Assignments::setID(int ID)
+{
+	assignmentID = ID;
+}
+//Adds a grade with student and grade value associated with it to the grades array
+void Assignments::addGrade(Student student, double grade)
+{
+	grades[student.getID()] = grade;
+}
+//Sets max score to assigned value
+void Assignments::setMaxScore(double score)
+{
+	maxScore = score;
+}
+//Sets min score to assigned value
+void Assignments::setMinScore(double score)
+{
+	maxScore = score;
+}
+//Sets mean score to assigned value
+void Assignments::setMeanScore(double score)
+{
+	meanScore = score;
+}
+
+//TURNED IN ASSIGNMENTS
+
+//Returns the first entry of the turned in array
+Student* Assignments::getTurnedInArray()
+{
+	return turnedInArray;
+}
+
+//Retruns amount of students in the turned in array
+int Assignments::getTurnedIn()
+{
+	return numTurnedIn;
+}
+
+//Returns the first entry of the incomplete array
+Student* Assignments::getIncompleteAssgnArray()
+{
+	return incompleteAssgnArray;
+}
+
+//Returns how many students are in the incomplete array
+int Assignments::getIncomplete()
+{
+	return numIncomplete;
+}
+
+//sets the category for the assignment
+void Assignments::setCategory(std::string name)
+{
+	category.name = name;
+}
+//returns the category for the assignment
+std::string Assignments::getCategory()
+{
+   return category.name;
+}
+
