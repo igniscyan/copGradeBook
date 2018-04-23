@@ -1,36 +1,89 @@
-
-
-#ifndef COURSES_COURSES_H
-#define COURSES_COURSES_H
+#include <iostream>
+#include <iomanip>
+#include "Courses.h"
 #include <string>
-#include <Gradebook.h>
-#include <Assignment.h>
+#include "Assignments.h"
+#include "Assignments.cpp"
 
 using namespace std;
 
-class Courses{
-private:
-    string name;
-    int courseID;
-    int period[];
-    Gradebook* periodGB[];
-    Assignment* courseAssignments[];
+Courses::Courses(std::string name, int ID){
+    
+    courseID = 0;
+    courseName = "";
+    name = "";
+    
+}
 
-public:
+//Getter methods
+string Courses::getName(){
+    
+    return name;
+    
+}
 
-    Courses();
+Courses::getID(){
+    
+    return courseID;
+    
+}
+string Courses::getCourseName(){
+    return courseName;
+}
 
-    //getter methods
-    string getName;
-    int[] getPeriods();
-    int getID;
-    double getGradeFromID(int stdID);
-    Assignment[]* getAssignments();
-    Gradebook * getPeriodGradebook(int prID);
 
-    //setter methods
-    void setID;
+int Courses::getPeriods(){
+    
+    return prID;
+    
+}
 
-    void addPeriod(int prID);
-    void addAssignment(Assignment assignmentName);
-};
+double Courses::getGradeFromID(int stdID){
+    
+    return grades;
+    
+}
+
+Assignments[]* Courses::getAssignments(){
+    
+    return name;
+}
+
+//Setter methods
+
+void Courses::setID(int ID){
+    
+    courseID = ID;
+    
+}
+void Courses::setCourseName(string name){
+    courseName = name;
+    
+}
+
+void Courses::addPeriod(int prID) {
+    int crs;
+    
+    cin >> prID;
+    
+    for(crs=0; crs<prID; crs+=prID) {
+        
+        prID++;
+        
+    }
+    
+}
+
+void Courses::addAssignment(Assignments assignmentName) {
+    Assignments Assignments;
+    
+    int asgm;
+    
+    cin >> assignmentName;
+    
+    for (asgm = 0; asgm < assignmentName; asgm += assignmentName) {
+        
+        assignmentName++;
+        
+    }
+}
