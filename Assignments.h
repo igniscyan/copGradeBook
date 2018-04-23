@@ -4,20 +4,21 @@
 #include <map>
 
 struct Category{
-    private:
-        std::string name;
+private:
+	std::string name;
 public:
-        //Category functions for the assignments
-        void setCategory(std::string name);
-        std::string getCategory();
+	//Category functions for the assignments
+	void setCategory(std::string name);
+	std::string getCategory();
 };
 
 class Assignments {
 private:
+	//Assignment values
     std::string assignmentName;
     int assignmentID;
 
-    //Student ID and grade
+    //Student ID and grade map
     std::map<int, double> grades;
 
     //Score_Analysis

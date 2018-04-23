@@ -2,7 +2,9 @@
 #include <string>
 #include <map>
 
-//ASSIGNMENT CONSTRUCTORS
+/*
+ASSIGNMENT CONSTRUCTORS
+*/
 
 //Required default constructor used if the client did not add a name and ID
 Assignments::Assignments()
@@ -25,17 +27,22 @@ Assignments::Assignments(std::string name, int ID)
 }
 
 
-//GET METHODS
+/*
+GET METHODS
+*/
+
 //returns the value of the assignment name
 std::string Assignments::getName()
 {
     return assignmentName;
 }
+
 //returns the value of the assignment ID
 int Assignments::getID()
 {
     return assignmentID;
 }
+
 //returns value of grade from the assignment ID
 double Assignments::getGrade(int ID)
 {
@@ -49,55 +56,70 @@ double Assignments::getGrade(int ID)
         return grades[ID];
     }
 }
+
 //returns max score that has been set from assignments
 double Assignments::getMaxScore()
 {
     return maxScore;
 }
+
 //returns min score that has been set from assignments
 double Assignments::getMinScore()
 {
     return minScore;
 }
+
 //returns mean score that is set in assignments
 double Assignments::getMeanScore()
 {
     return meanScore;
 }
 
-//SET METHODS
+
+/*
+SET METHODS
+*/
+
 //Sets assignment name to the name that is provided
 void Assignments::setName(std::string name)
 {
     assignmentName = name;
 }
+
 //sets assignment ID to the ID that is provided
 void Assignments::setID(int ID)
 {
     assignmentID = ID;
 }
+
 //Adds a grade with student and grade value associated with it to the grades array
 void Assignments::addGrade(int studentID, double grade)
 {
     grades[studentID] = grade;
 }
+
 //Sets max score to assigned value
 void Assignments::setMaxScore(double score)
 {
     maxScore = score;
 }
+
 //Sets min score to assigned value
 void Assignments::setMinScore(double score)
 {
     maxScore = score;
 }
+
 //Sets mean score to assigned value
 void Assignments::setMeanScore(double score)
 {
     meanScore = score;
 }
 
-//TURNED IN ASSIGNMENTS
+
+/*
+TURNED IN ASSIGNMENTS
+*/
 
 //Returns the first entry of the turned in array
 int Assignments::getTurnedInArray()
