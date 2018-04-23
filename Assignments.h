@@ -1,60 +1,68 @@
+
 #pragma once
 #include <string>
 #include <map>
-#include <Student.h>
+
+struct Category{
+    private:
+        std::string name;
+public:
+        //Category functions for the assignments
+        void setCategory(std::string name);
+        std::string getCategory();
+};
+
 class Assignments {
 private:
-	std::string assignmentName;
-	int assignmentID;
-	
-	//Student ID and grade
-	std::map<int, double> grades;
+    std::string assignmentName;
+    int assignmentID;
 
-	//Score_Analysis
-	double maxScore;
-	double minScore;
-	double meanScore;
+    //Student ID and grade
+    std::map<int, double> grades;
 
-	Student * turnedInArray;
-	int numTurnedIn;
-	Student * incompleteAssgnArray;
-	int numIncomplete;
+    //Score_Analysis
+    double maxScore;
+    double minScore;
+    double meanScore;
 
-	struct category;
-	
+    int turnedInArray;
+    int numTurnedIn;
+    int incompleteAssgnArray;
+    int numIncomplete;
+
+    Category assignmentCategory;
+
 public:
-	//Constructors
-	Assignments();
-	Assignments(std::string name, int ID);
+    //Constructors
+    Assignments();
+    Assignments(std::string name, int ID);
 
-	//Get Methods
-	std::string getName();
-	int getID();
-	double getGrade(int ID);
+    //Get Methods
+    std::string getName();
+    int getID();
+    double getGrade(int ID);
 
-	//Set Methods
-	void setName(std::string name);
-	void setID(int ID);
-	void addGrade(Student student, double grade);
-	
-	//Get Score Analysis
-	double getMaxScore();
-	double getMinScore();
-	double getMeanScore();
+    //Set Methods
+    void setName(std::string name);
+    void setID(int ID);
+    void addGrade(int studentID, double grade);
 
-	//Set Score Analysis
-	void setMaxScore(double score);
-	void setMinScore(double score);
-	void setMeanScore(double score);
+    //Get Score Analysis
+    double getMaxScore();
+    double getMinScore();
+    double getMeanScore();
 
-	//Turned in and incomplete arrays
-	Student* getTurnedInArray();
-	int getTurnedIn();
-	Student* getIncompleteAssgnArray();
-	int getIncomplete();
+    //Set Score Analysis
+    void setMaxScore(double score);
+    void setMinScore(double score);
+    void setMeanScore(double score);
 
-	//Category functions for the assignments
-	void setCategory(std::string name);
-	std::string getCategory();
-	
+    //Turned in and incomplete arrays
+    int getTurnedInArray();
+    int getTurnedIn();
+    int getIncompleteAssgnArray();
+    int getIncomplete();
+
 };
+
+
